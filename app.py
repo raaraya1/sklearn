@@ -12,6 +12,7 @@ from SVR import SVR_st
 from Perceptron import perceptron_st
 from k_mean_clustering import k_mean_clustering_st, plot
 from PCA import PCA_st
+from ICA import ICA_st
 
 st.write('''
 # **Machine Learning**
@@ -143,16 +144,20 @@ elif task == 'Unsupervised Learning':
     # seleccionar el algoritmo
     if alg_selected == 'K-means Clustering': algorithm = k_mean_clustering_st(dataset_selected)
     elif alg_selected == 'PCA (Principal Component Analysis)': algorithm = PCA_st(dataset_selected)
+    elif alg_selected == 'ICA (Independent Component Analysis)': algorithm = ICA_st(dataset_selected)
 
     with st.expander('Explicacion del algoritmo'):
         if alg_selected == 'K-means Clustering': algorithm.desc
         elif alg_selected == 'PCA (Principal Component Analysis)': algorithm.desc
+        elif alg_selected == 'ICA (Independent Component Analysis)': algorithm.desc
 
     with st.expander('Ajustes de parametros'):
         if alg_selected == 'K-means Clustering': algorithm.params()
         elif alg_selected == 'PCA (Principal Component Analysis)': algorithm.params()
+        elif alg_selected == 'ICA (Independent Component Analysis)': algorithm.params()
 
     with st.expander('Resultados'):
         c = st.container()
         if alg_selected == 'K-means Clustering': c.pyplot(algorithm.solve())
         elif alg_selected == 'PCA (Principal Component Analysis)': c.pyplot(algorithm.solve())
+        elif alg_selected == 'ICA (Independent Component Analysis)': c.pyplot(algorithm.solve())

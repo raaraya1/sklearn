@@ -68,7 +68,7 @@ class PCA_st:
         x1 = X_proyected_sk[:, self.x_feature-1]
         x2 = X_proyected_sk[:, self.y_feature-1]
 
-        plt.scatter(x1, x2, c=y, edgecolors='none', alpha=0.8, cmap=plt.cm.get_cmap('viridis', 3))
+        plt.scatter(x1, x2, c=y, edgecolors='none', alpha=0.8, cmap=plt.cm.get_cmap('viridis', len(y)))
         plt.xlabel(f'Componente {self.x_feature}')
         plt.ylabel(f'Componente {self.y_feature}')
         plt.colorbar()

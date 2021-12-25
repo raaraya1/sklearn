@@ -75,7 +75,7 @@ if task == 'Supervised Learning':
         with st.expander('Ajustes de parametros'):
             if alg_selected == 'KNN (K Nearest Neighborns)': algorithm.params()
             elif alg_selected == 'SVC (Support Vector Classification)': algorithm.params()
-            elif alg_selected == 'Logistic Regression': pass
+            elif alg_selected == 'Logistic Regression': algorithm.params()
             elif alg_selected == 'Decision Tree': algorithm.params()
             elif alg_selected == 'Random Forest': algorithm.params()
             elif alg_selected == 'Naive Bayes': pass
@@ -89,6 +89,17 @@ if task == 'Supervised Learning':
             elif alg_selected == 'Random Forest': algorithm.solve()
             elif alg_selected == 'Naive Bayes': algorithm.solve()
             elif alg_selected == 'Ada Boost': algorithm.solve()
+
+        with st.expander('Visualizacion'):
+            c = st.container()
+            if alg_selected == 'KNN (K Nearest Neighborns)': pass
+            elif alg_selected == 'SVC (Support Vector Classification)': pass
+            elif alg_selected == 'Logistic Regression': c.pyplot(algorithm.visualization())
+            elif alg_selected == 'Decision Tree': pass
+            elif alg_selected == 'Random Forest': pass
+            elif alg_selected == 'Naive Bayes': pass
+            elif alg_selected == 'Ada Boost': pass
+
 
 
     elif type == 'Regression':

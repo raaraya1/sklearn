@@ -70,7 +70,7 @@ class ada_boost_st:
         - Entrenamos a un clasificador debil (se busca la mejor variable y limite para segmentar)
         - Calculamos el error $ϵ_{t} = \sum_{desaciertos} weights$
          - Cambiar el error y la polaridad si este es mayor a 0.5
-        - Calcular $ \alpha = 0.5 \cdot log(\frac{1 - \epsilon_{t}}{ϵ_{t}})$
+        - Calcular $\alpha = 0.5 \cdot log(\frac{1 - \epsilon_{t}}{ϵ_{t}})$
         - Actualizar los pesos: $w = \frac{w \cdot e^{- αh(X)}}{Z}$
         '''
         self.n_clf = 5

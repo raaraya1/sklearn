@@ -14,9 +14,6 @@ class ICA_st:
         self.desc = r'''
         # **ICA (Independent Component Analysis)**
 
-        Fuente: https://towardsdatascience.com/independent-component-analysis-ica-in-python-a0ef0db0955e
-
-
         ICA es un metodo que se utiliza para identificar las componentes de una señal multivariada. De esta manera es que podemos extraer un componente que se encuentre mezclados con otros.
 
          - A $X$ restarle su media $\bar{X}$

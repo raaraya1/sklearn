@@ -5,6 +5,8 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression as LR_sk
 from sklearn.metrics import accuracy_score
+import matplotlib.pyplot as plt
+
 
 
 class Logit_st:
@@ -33,7 +35,7 @@ class Logit_st:
         **Gradientes**
 
         $$
-        \left[\begin{array}{11} \frac{d_{loss}}{dw} \\ \frac{d_{loss}}{db} \end{array}\right] = \left[\begin{array}{11} \frac{1}{N} \sum 2x_{i}(\hat{y} - y_{i}) \\ \frac{1}{N} \sum 2(\hat{y} - y_{i}) \end{array}\right]
+        \left[\begin{array}{ll} \frac{d_{loss}}{dw} \\ \frac{d_{loss}}{db} \end{array}\right] = \left[\begin{array}{ll} \frac{1}{N} \sum 2x_{i}(\hat{y} - y_{i}) \\ \frac{1}{N} \sum 2(\hat{y} - y_{i}) \end{array}\right]
         $$
 
         **Metodo de Gradient Descent**
@@ -52,13 +54,47 @@ class Logit_st:
 
         - Terminar de iterar
         '''
+        self.x_feature = 1
+        self.y_feature = 2
 
+    def params(self):
+        pass
 
     def solve(self):
-        X, y = self.database.data, self.database.target
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.test_size)
-        sklearn_clf = LR_sk(max_iter=1000)
-        sklearn_clf.fit(X_train, y_train)
-        y_pred = sklearn_clf.predict(X_test)
+        self.X, self.y = self.database.data, self.database.target
+        X_train, X_test, y_train, y_test = train_test_split(self.X, self.y, test_size=self.test_size, random_state=1234)
+        self.sklearn_clf = LR_sk(max_iter=1000, random_state=1234)
+        self.sklearn_clf.fit(X_train, y_train)
+        y_pred = self.sklearn_clf.predict(X_test)
         acc = accuracy_score(y_pred, y_test)
         st.metric('Acierto', value=f'{np.round(acc, 2)*100}%')
+
+    def visualization(self):
+        n_features = int(self.database.data.shape[1])
+        self.x_feature = st.slider('Variables en eje x', 1, n_features, 1)
+        self.y_feature = st.slider('Variables en eje y', 1, n_features, 2)
+
+        self.X = np.c_[self.database.data[:, self.x_feature-1:self.x_feature], self.database.data[:, self.y_feature-1:self.y_feature]]
+        self.y = self.database.target
+        X_train, X_test, y_train, y_test = train_test_split(self.X, self.y, test_size=self.test_size, random_state=1234)
+        self.sklearn_clf = LR_sk(max_iter=1000, random_state=1234)
+        self.sklearn_clf.fit(X_train, y_train)
+
+        x1_min, x1_max = self.X[:, 0].min() - 0.5, self.X[:, 0].max() + 0.5
+        x2_min, x2_max = self.X[:, 1].min() - 0.5, self.X[:, 1].max() + 0.5
+        h = 0.02 # Salto que vamos dando
+        x1_i = np.arange(x1_min, x1_max, h)
+        x2_i = np.arange(x2_min, x2_max, h)
+        x1_x1, x2_x2 = np.meshgrid(x1_i, x2_i)
+        y_pred = self.sklearn_clf.predict(np.c_[x1_x1.ravel(), x2_x2.ravel()])
+        y_pred = y_pred.reshape(x1_x1.shape)
+
+        plt.figure(1, figsize=(4, 3))
+        plt.pcolormesh(x1_x1, x2_x2, y_pred, cmap=plt.cm.Paired)
+
+        # Lo que vamos a hacer ahora es agregar los puntos de que usaron para ajustar
+        # al algoritmo (en este caso utilizamos todas las observaciones)
+        plt.scatter(self.X[:, 0], self.X[:, 1], c=self.y, edgecolors='k', cmap=plt.cm.Paired)
+        plt.xlim(x1_x1.min(), x1_x1.max())
+        plt.ylim(x2_x2.min(), x2_x2.max())
+        return plt.gcf()

@@ -14,7 +14,7 @@ class SVC_st:
         self.desc = r'''
                         # **Support Vector Machine**
 
-        No conozco mucho sobre este algoritmo, pero al paracer tiene por objetivo la busqueda de un hiperplano que segregue los datos atendiendo a estas dos condiciones:
+        Este algortimo tiene por objetivo la busqueda de un hiperplano que segregue los datos atendiendo a estas dos condiciones:
 
         $$
         wx - b = 0
@@ -55,13 +55,13 @@ class SVC_st:
         - si $y_{i}(xw - b) \geq 1$:
 
         $$
-        \left [\begin{array}{11} \frac{d_{loss}}{d_{w_{k}}} \\ \frac{d_{loss}}{db} \end{array} \right] = \left [\begin{array}{11} 2 \lambda w_{k} \\ 0 \end{array} \right]
+        \left[\begin{array}{ll} \frac{d_{loss}}{d_{w_{k}}} \\ \frac{d_{loss}}{db} \end{array} \right] = \left [\begin{array}{ll} 2 \lambda w_{k} \\ 0 \end{array} \right]
         $$
 
         - si $y_{i}(xw - b) < 1$:
 
         $$
-        \left [\begin{array}{11} \frac{d_{loss}}{d_{w_{k}}} \\ \frac{d_{loss}}{db} \end{array} \right] = \left [\begin{array}{11} 2 \lambda w_{k} - y_{i} \cdot x_{i} \\ y_{i} \end{array} \right]
+        \left[\begin{array}{ll}\frac{d_{loss}}{d_{w_{k}}} \\ \frac{d_{loss}}{db} \end{array} \right] = \left[\begin{array}{ll} 2\lambda w_{k} - y_{i} \cdot x_{i} \\ y_{i} \end{array} \right]
         $$
 
         **Reglas de actualizacion (Gradient Descent)**

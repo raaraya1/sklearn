@@ -92,13 +92,13 @@ if task == 'Supervised Learning':
 
         with st.expander('Visualizacion'):
             c = st.container()
-            if alg_selected == 'KNN (K Nearest Neighborns)': pass
-            elif alg_selected == 'SVC (Support Vector Classification)': pass
+            if alg_selected == 'KNN (K Nearest Neighborns)': c.pyplot(algorithm.visualization())
+            elif alg_selected == 'SVC (Support Vector Classification)': c.pyplot(algorithm.visualization())
             elif alg_selected == 'Logistic Regression': c.pyplot(algorithm.visualization())
-            elif alg_selected == 'Decision Tree': pass
-            elif alg_selected == 'Random Forest': pass
-            elif alg_selected == 'Naive Bayes': pass
-            elif alg_selected == 'Ada Boost': pass
+            elif alg_selected == 'Decision Tree': c.pyplot(algorithm.visualization())
+            elif alg_selected == 'Random Forest': c.pyplot(algorithm.visualization())
+            elif alg_selected == 'Naive Bayes': c.pyplot(algorithm.visualization())
+            elif alg_selected == 'Ada Boost': c.pyplot(algorithm.visualization())
 
 
 

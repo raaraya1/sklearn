@@ -91,9 +91,6 @@ class Logit_st:
 
         plt.figure(1, figsize=(4, 3))
         plt.pcolormesh(x1_x1, x2_x2, y_pred, cmap=plt.cm.Paired)
-
-        # Lo que vamos a hacer ahora es agregar los puntos de que usaron para ajustar
-        # al algoritmo (en este caso utilizamos todas las observaciones)
         plt.scatter(self.X[:, 0], self.X[:, 1], c=self.y, edgecolors='k', cmap=plt.cm.Paired)
         plt.xlim(x1_x1.min(), x1_x1.max())
         plt.ylim(x2_x2.min(), x2_x2.max())

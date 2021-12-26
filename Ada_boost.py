@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import AdaBoostClassifier as ABC
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix
 
 
 
@@ -90,7 +91,15 @@ class ada_boost_st:
         self.sklearn_clf.fit(X_train, y_train)
         y_pred = self.sklearn_clf.predict(X_test)
         acc = accuracy_score(y_pred, y_test)
-        st.metric('Acierto', value=f'{np.round(acc, 2)*100}%')
+
+        c1, c2 = st.columns([4, 1])
+        c2.metric('Acierto', value=f'{np.round(acc, 2)*100}%')
+        df = pd.DataFrame(confusion_matrix(y_pred, y_test))
+        labels = self.database.target_names
+        df.columns = labels
+        df.index = labels
+        c1.write('**Confusion Matrix**')
+        c1.dataframe(df)
 
     def visualization(self):
         n_features = int(self.database.data.shape[1])

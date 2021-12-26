@@ -34,17 +34,17 @@ class agglomerative_clustering_st:
         self.n_clusters = 3
 
     def params(self):
-        n_features = int(self.database.data.shape[1])
         n_targets = len(set(self.database.target))
-        self.x_feature = st.slider('Variables en eje x', 1, n_features, 1)
-        self.y_feature = st.slider('Variables en eje y', 1, n_features, 2)
         self.n_clusters = st.slider('Numero de clusters', 1, n_targets, 1)
 
     def solve(self):
+        n_features = int(self.database.data.shape[1])
+        self.x_feature = st.slider('Variables en eje x', 1, n_features, 1)
+        self.y_feature = st.slider('Variables en eje y', 1, n_features, 2)
         X = self.database.data
         sklearn_clus = AgglomerativeClustering(self.n_clusters, linkage='single')
         pred = sklearn_clus.fit_predict(X)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(12,8))
         ax.scatter(X[:, self.x_feature-1], X[:, self.y_feature-1], c=pred)
         plt.title(f'{self.n_clusters} Clusters')
         return fig

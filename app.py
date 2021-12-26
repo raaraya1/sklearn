@@ -142,12 +142,18 @@ if task == 'Supervised Learning':
             elif alg_selected == 'SVR (Support Vector Regression)': algorithm.solve()
             elif alg_selected == 'Perceptron': algorithm.solve()
 
+        with st.expander('Visualización'):
+            c = st.container()
+            if alg_selected == 'Linear Regression': c.pyplot(algorithm.visualization())
+            elif alg_selected == 'SVR (Support Vector Regression)': c.pyplot(algorithm.visualization())
+            elif alg_selected == 'Perceptron': c.pyplot(algorithm.visualization())
+
+
 # ------------------------------------Unsupervised learning-----------------------------------
 
 elif task == 'Unsupervised Learning':
     alg_selected = st.sidebar.selectbox('Algoritmo:', ['K-means Clustering',
                                         'Agglomerative Clustering',
-                                        'Feature Agglomeration',
                                         'PCA (Principal Component Analysis)',
                                         'ICA (Independent Component Analysis)',
                                         'LDA (Linear Discrimination Analysis)'])

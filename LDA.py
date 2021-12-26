@@ -66,10 +66,10 @@ class LDA_st:
     def params(self):
         n_features = int(self.database.data.shape[1])
         self.n_components = st.slider('Numero de componentes', 1, n_features, 2)
-        self.x_feature = st.slider('Componente eje x', 1, self.n_components, 1)
-        self.y_feature = st.slider('Componente eje y', 1, self.n_components, 2)
 
     def solve(self):
+        self.x_feature = st.slider('Componente eje x', 1, self.n_components, 1)
+        self.y_feature = st.slider('Componente eje y', 1, self.n_components, 2)
         X = self.database.data
         y = self.database.target
         sklearn_clus = LinearDiscriminantAnalysis(n_components=self.n_components)
@@ -79,6 +79,7 @@ class LDA_st:
         x1 = X_proyected_sk[:, self.x_feature-1]
         x2 = X_proyected_sk[:, self.y_feature-1]
 
+        plt.figure(figsize=(12, 8))
         plt.scatter(x1, x2, c=y, edgecolors='none', alpha=0.8, cmap=plt.cm.get_cmap('viridis', len(y)))
         plt.xlabel(f'Componente {self.x_feature}')
         plt.ylabel(f'Componente {self.y_feature}')

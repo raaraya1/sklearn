@@ -100,7 +100,7 @@ class Decision_tree_st:
         y_pred = self.sklearn_clf.predict(np.c_[x1_x1.ravel(), x2_x2.ravel()])
         y_pred = y_pred.reshape(x1_x1.shape)
 
-        plt.figure(1, figsize=(4, 3))
+        plt.figure(1, figsize=(12, 8))
         plt.pcolormesh(x1_x1, x2_x2, y_pred, cmap=plt.cm.Paired)
         plt.scatter(self.X[:, 0], self.X[:, 1], c=self.y, edgecolors='k', cmap=plt.cm.Paired)
         plt.xlim(x1_x1.min(), x1_x1.max())

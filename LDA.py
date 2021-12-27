@@ -16,14 +16,14 @@ class LDA_st:
 
         **Objetivo**
 
-        Reducir el numero de variables (**features**).
-        El objetivo es proyectar un conjunto de datos a un espacio dimensional mas reducido. (Similar a como se hacia con **PCA**)
+        Reducir el número de variables (**features**).
+        El objetivo es proyectar un conjunto de datos a un espacio dimensional más reducido. (Similar a como se hacía con **PCA**)
 
         **PCA vs LDA**
 
         - **PCA**: Encontrar los ejes que maximizan la varianza en los datos.
-        - **LDA**: El interes esta puesto en los ejes que maximizan la separacion entre clases de datos.
-        - **LDA**: es un tipo de **aprendizaje supervizado** (utiliza la clasificacion (etiquetas) de los datos para entrenar al algortimo), en cambio **PCA** es un tipo de **aprendizaje no supervizado** (sin etiquetas)
+        - **LDA**: El interés esta puesto en los ejes que maximizan la separación entre clases de datos.
+        - **LDA**: es un tipo de **aprendizaje supervisado** (utiliza la clasificación (etiquetas) de los datos para entrenar al algoritmo), en cambio **PCA** es un tipo de **aprendizaje no supervisado** (sin etiquetas)
 
         **Within-class scatter matrix**
 
@@ -43,20 +43,20 @@ class LDA_st:
 
         **Vectores y valores propios**
 
-        Calcular los vectore y valores propios de la siguiente matriz:
+        Calcular los vectores y valores propios de la siguiente matriz:
 
         $$
         S_{W}^{-1} S_{B}
         $$
 
 
-        **Metodo**
+        **Método**
 
         - Calcular $S_{B}$
         - Calcular $S_{W}$
-        - Calcular los vecores y valores propios de $S_{W}^{-1} S_{B}$
-        - Ordenar los vectores propios en funcion de los valores propios de manera decreciente
-        - Escoger los primeros k vectores propios los cuales vendran a representar las nuevas k dimensiones
+        - Calcular los vectores y valores propios de $S_{W}^{-1} S_{B}$
+        - Ordenar los vectores propios en función de los valores propios de manera decreciente
+        - Escoger los primeros k vectores propios los cuales vendrán a representar las nuevas k dimensiones
         - Transformar los datos en las nuevas dimensiones (**se hace con producto punto**) '''
 
         self.x_feature = 1

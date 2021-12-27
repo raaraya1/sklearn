@@ -14,7 +14,7 @@ class SVR_st:
         self.desc = r'''
         # **SVR (Support Vector Regression)**
 
-        En construccion.
+        En construcción.
         '''
 
     def params(self):

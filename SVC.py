@@ -17,7 +17,7 @@ class SVC_st:
         self.desc = r'''
                         # **Support Vector Machine**
 
-        Este algortimo tiene por objetivo la busqueda de un hiperplano que segregue los datos atendiendo a estas dos condiciones:
+        Este algoritmo tiene por objetivo la búsqueda de un hiperplano que segregue los datos atendiendo a estas dos condiciones:
 
         $$
         wx - b = 0
@@ -27,7 +27,7 @@ class SVC_st:
         max \quad \frac{2}{||w||}
         $$
 
-        **Linear model (2 categorias (1 y -1))**
+        **Linear model (2 categorías (1 y -1))**
 
         $$
         wx - b = 0
@@ -47,13 +47,13 @@ class SVC_st:
         y_{i}(wx_{i} - b) \geq 1
         $$
 
-        **Funcion de costos (loss)**
+        **Función de costos (loss)**
 
         $$
         loss = λ||w||^2 + \frac{1}{n} \sum_{i=1}^{n} max(0, 1-y_{i}(wx_{i}-b))
         $$
 
-        De esta manera las **derivadas** en funcion de los parametros siguen las siguientes reglas:
+        De esta manera las **derivadas** en función de los parámetros siguen las siguientes reglas:
 
         - si $y_{i}(xw - b) \geq 1$:
 
@@ -67,13 +67,13 @@ class SVC_st:
         \left[\begin{array}{ll}\frac{d_{loss}}{d_{w_{k}}} \\ \frac{d_{loss}}{db} \end{array} \right] = \left[\begin{array}{ll} 2\lambda w_{k} - y_{i} \cdot x_{i} \\ y_{i} \end{array} \right]
         $$
 
-        **Reglas de actualizacion (Gradient Descent)**
+        **Reglas de actualización (Gradient Descent)**
 
-        - Inicializar parametros
+        - Inicializar parámetros
         - Iterar
          - Calcular loss
          - Calcular gradiente
-         - Actualizar parametros
+         - Actualizar parámetros
 
          $$
         w = w - lr \cdot dw

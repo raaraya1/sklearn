@@ -17,7 +17,7 @@ class naive_bayes_st:
         self.desc = r'''
         # **Naive Bayes**
 
-        Particularmente, este algoritmo no lo conocia, y por lo que he visto hasta ahora funciona como un **clasificador** basandose principalmente en el **teorema de bayes**.
+        Particularmente, este algoritmo no lo conocía, y por lo que he visto hasta ahora funciona como un **clasificador** basándose principalmente en el **teorema de bayes**.
 
         **Teorema de bayes**
 
@@ -25,13 +25,13 @@ class naive_bayes_st:
         P(A/B) = \frac{P(B/A) \cdot P(A)}{P(B)}
         $$
 
-        Eso si, para aprovechar este teorema es que se tiene que cumplir la condicion de que los atributos o **componentes del vector X sean independientes entre si (Se asume que los eventos son independientes)**.
+        Eso sí, para aprovechar este teorema es que se tiene que cumplir la condición de que los atributos o **componentes del vector X sean independientes entre sí (Se asume que los eventos son independientes)**.
 
         $$
         P(y/X) = \frac{P(X/y) \cdot P(y)}{P(X)} = \frac{P(x_{1}/y) \quad ... \quad P(x_{n}/y) \cdot P(y)}{P(X)}
         $$
 
-        Asi, luego la manera de escoger a que clasificacion pertenece el vector X, es calculando todas las probabilidades condicionales (**Nota**: el $P(x)$ lo podemos omitir ya que va a estar presente en todas las ecuaciones)
+        Así, luego la manera de escoger a que clasificación pertenece el vector X, es calculando todas las probabilidades condicionales (**Nota**: el $P(x)$ lo podemos omitir ya que va a estar presente en todas las ecuaciones)
 
 
         $$
@@ -43,9 +43,9 @@ class naive_bayes_st:
         $$
 
 
-        **Por ultimo, nos falta definir:**
+        **Por último, nos falta definir:**
 
-        $P(y)$: Frecuencia (cantidad de veces que esta presente la clasificacion y en los datos)
+        $P(y)$: Frecuencia (cantidad de veces que está presente la clasificación y en los datos)
 
         $$
         P(x_{i}/y) = \frac{1}{\sqrt{2\pi \sigma_{y}^{2}}} \cdot e^{(-\frac{(x_{i} - \mu_{y})^2}{2σ_{y}^{2}})}

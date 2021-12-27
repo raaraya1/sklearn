@@ -17,7 +17,7 @@ class Logit_st:
         self.desc = r'''
         # **Logistic Regresion**
 
-        **Prediccion (Aproximacion)**
+        **Predicción (Aproximación)**
 
         $$
         z = wx + b
@@ -27,7 +27,7 @@ class Logit_st:
         \hat{y} = \frac{1}{1+e^{-z}}
         $$
 
-        **Funcion de perdida (cross entropy)**
+        **Función de perdida (cross entropy)**
 
         $$
         loss = \frac{1}{N} \sum_{i=1}^{n} [y^{i}log(\hat{y(x^{i})}) + (1-y^{i})log(1 - \hat{y(x^{i})})]
@@ -40,7 +40,7 @@ class Logit_st:
         $$
 
         **Metodo de Gradient Descent**
-        - Iniciar parametros
+        - Iniciar parámetros
         - Iterar
          - Calcular el error (loss)
          - Actualizar los pesos ($lr$=learning rate)

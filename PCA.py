@@ -14,7 +14,7 @@ class PCA_st:
         self.desc = r'''
         # **PCA (Principal Component Analysis)**
 
-        El objetivo principal con este metodo es definir una nueva dimension para el set de datos (siendo estas nuevas dimensiones ortogonales y por tanto independientes).
+        El objetivo principal con este método es definir una nueva dimensión para el set de datos (siendo estas nuevas dimensiones ortogonales y por tanto independientes).
 
         **Varianza**
 
@@ -34,7 +34,7 @@ class PCA_st:
 
         **Valores y Vectores Propios**
 
-        Los vectores propios apuntan en la direccion donde se genera la maxima varianza y el correspondiente valor propio indica el grado de importancia del vector.
+        Los vectores propios apuntan en la dirección donde se genera la máxima varianza y el correspondiente valor propio indica el grado de importancia del vector.
 
         $$
         A \vec{v} = λ \vec{v}
@@ -44,9 +44,9 @@ class PCA_st:
         - Sustraer al vector X su media.
         - Calcular la Cov(X, X)
         - Calcular los vectores y valores propios de las matrices de covarianza
-        - Ordenar los vectores propios segun su importancia (en base a su valor propio) en orden decreciente
+        - Ordenar los vectores propios según su importancia (en base a su valor propio) en orden decreciente
         - Escoger los primeros k vectores propios y estos pasaran a ser las nuevas k dimensiones
-        - Por ultimo, transformar (proyectar) los datos en las nuevas dimensiones (esto se hace con un producto punto)'''
+        - Por último, transformar (proyectar) los datos en las nuevas dimensiones (esto se hace con un producto punto)'''
 
         self.x_feature = 1
         self.y_feature = 2

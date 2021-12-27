@@ -32,16 +32,16 @@ class k_mean_clustering_st:
         self.desc = r'''
         # **K-Mean Clustering**
 
-        El objetivo en esta ocacion es segmentar información desclasificada (**unsupervised learning**)
+        El objetivo en esta ocasión es segmentar información desclasificada (**unsupervised learning**)
 
-        Asi, este metodo asigna a una muestra de datos una clase en base a la distancia promedio entre los datos.
+        Así, este método asigna a una muestra de datos una clase en base a la distancia promedio entre los datos.
 
         **Iterative Optimization**
 
         - Inicializamos los centros de manera aleatoria
         - Iteramos hasta converger
          - Actualizamos las clasificaciones de los datos utilizando el centroide.
-         - Actualizamos el centroide. (este correponde a la posicion del centro para una clase)
+         - Actualizamos el centroide. (este corresponde a la posición del centro para una clase)
 
 
         **Distancia entre vectores**

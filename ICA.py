@@ -14,10 +14,10 @@ class ICA_st:
         self.desc = r'''
         # **ICA (Independent Component Analysis)**
 
-        ICA es un metodo que se utiliza para identificar las componentes de una señal multivariada. De esta manera es que podemos extraer un componente que se encuentre mezclados con otros.
+        ICA es un método que se utiliza para identificar las componentes de una señal multivariada. De esta manera es que podemos extraer un componente que se encuentre mezclados con otros.
 
          - A $X$ restarle su media $\bar{X}$
-         - Transformar $X$ de manera que las potenciales correlaciones entre las componentes sea removidas y que la varianza para cada componente sea igual a 1. (Hacer que la matriz de covarianza se paresca a la matriz de identidad)
+         - Transformar $X$ de manera que las potenciales correlaciones entre las componentes sean removidas y que la varianza para cada componente sea igual a 1. (Hacer que la matriz de covarianza se parezca a la matriz de identidad)
 
           $$
           \hat{x} = E \cdot \sqrt{D} \cdot E^{T} \cdot x
@@ -43,14 +43,14 @@ class ICA_st:
         w_{p} = \frac{w_{p}}{||w_{p}||}
         $$
 
-         - Chequear condicion de termino. Si no se cumple volvemos a calcular los nuevos valores de $w$
+         - Chequear condición de termino. Si no se cumple volvemos a calcular los nuevos valores de $w$
 
 
         $$
         w_{p}^{T}w_{p+1} - 1 < Tolerance
         $$
 
-         - Calcular la fuentes independientes como $S = W \cdot X$'''
+         - Calcular las fuentes independientes como $S = W \cdot X$'''
 
         self.x_feature = 1
         self.y_feature = 2

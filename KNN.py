@@ -17,7 +17,7 @@ class KNN_st:
         self.desc = '''
                         # **Algoritmo KNN (K Nearest Neighbor)**
 
-                Este algoritmo se basa en que para predecir una clasificación sobre un nuevo dato, lo primero que debemos hacer es calcula la **distancia euclidiana** con el resto de los datos, **seleccionar los k datos con menor distancia** (mas cercanos) y por ultimo **asignar la clasificación en funcion a la moda** (categoria mas repetida) de esos k datos seleccionados.
+                Este algoritmo se basa en que, para predecir una clasificación sobre un nuevo dato, lo primero que debemos hacer es calcula la **distancia euclidiana** con el resto de los datos, **seleccionar los k datos con menor distancia** (más cercanos) y por ultimo **asignar la clasificación en función a la moda** (categoría más repetida) de esos k datos seleccionados.
 
                 **Distancia Euclidiana**
 

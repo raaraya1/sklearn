@@ -15,7 +15,7 @@ class perceptron_st:
         self.desc = r'''
         # **Perceptron**
 
-        Este es el modelo mas sencillo y que sirve de introduccion a los modelos de redes neuronales. En particular, su funcionamiento es bastante similar al modelo de regresion linea. con la diferencia de que ocupa una funcion de activacion en la salida (**funcion no lineal**).
+        Este es el modelo más sencillo y que sirve de introducción a los modelos de redes neuronales. En particular, su funcionamiento es bastante similar al modelo de regresión linear. con la diferencia de que ocupa una función de activación en la salida (**función no lineal**).
 
         **Modelo Lineal**
 
@@ -23,19 +23,19 @@ class perceptron_st:
         f(w, b) = w^{t}x + b
         $$
 
-        **Funcion de Activacion**
+        **Función de Activación**
 
         $$
         z(x) \in (0, 1) \quad si \quad x \geq 0
         $$
 
-        **Aproximacion (prediccion)**
+        **Aproximación (predicción)**
 
         $$
         \hat{y} = z(w^{t}x + b)
         $$
 
-        **Reglas de actualización (aqui se encuentra incluido el bias)**
+        **Reglas de actualización (aquí se encuentra incluido el bias)**
 
         $$
         w = w + \Delta w = w + lr(y_{i} - \hat{y_{i}})x_{i}

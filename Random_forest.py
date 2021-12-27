@@ -17,11 +17,11 @@ class random_forest_st:
         self.desc = '''
         # **Random Forest**
 
-        Este algoritmo se contruye en base al algoritmo de **Decision Tree**. Asi, lo que se hace es:
+        Este algoritmo se construye en base al algoritmo de **Decision Tree**. Así, lo que se hace es:
 
         - Definir cantidad de estimadores (**Decision Tree**)
-        - Cada estimador entrenarlo con una muestra del set de datos de entrenamiento, variando asi la cantidad de variables y la cantidad de datos con la cual se entrenan estos estimadores.
-        - Luego, para generar la prediccion de algoritmo, lo que se hace es consultar a cada estimador su prediccion y "**de manera democratica**" se escoje la opción mas "**votada**"
+        - Cada estimador entrenarlo con una muestra del set de datos de entrenamiento, variando así la cantidad de variables y la cantidad de datos con la cual se entrenan estos estimadores.
+        - Luego, para generar la predicción de algoritmo, lo que se hace es consultar a cada estimador su predicción y "**de manera democrática**" se escoge la opción más "**votada**"
         '''
         self.n_trees = 100
         self.min_samples_split = 2

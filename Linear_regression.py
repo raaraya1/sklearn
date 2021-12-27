@@ -15,12 +15,12 @@ class linear_regression_st:
         # **Linear Regression**
 
 
-        **Prediccion (aproximacion)**
+        **Predicción (aproximación)**
         $$
         \hat{y} = wx + b
         $$
 
-        **Funcion de costos**
+        **Función de costos**
 
         $$
         Loss = MSE = \frac{1}{N} \sum_{i=1}^n (y_{i} - \hat{y_{i}})^2
@@ -33,12 +33,12 @@ class linear_regression_st:
         \left[\begin{array}{ll}\frac{d_{loss}}{dw} \\ \frac{d_{loss}}{db} \end{array} \right] = \left[\begin{array}{ll} \frac{1}{N} \sum -2x_{i}(y_{i} - (wx_{i} + b)) \\ \frac{1}{N} \sum -2(y_{i} - (wx_{i} + b)) \end{array} \right]
         $$
 
-        **Metodo del Descenso del Gradiente**
+        **Método del Descenso del Gradiente**
 
         - Inicializar los pesos ($w$) y el sesgo ($b$)
         - Iteramos
           - Calcular el gradiente
-          - Actualizamos los parametros (lr=learning rate)
+          - Actualizamos los parámetros (lr=learning rate)
 
         $$
         w = w - lr*dw

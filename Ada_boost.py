@@ -17,29 +17,29 @@ class ada_boost_st:
         self.desc = r'''
         # **AdaBoost**
 
-        Este algoritmo se basa en ir agrupando otros algoritmos de clasificacion, para que en conjunto generen una prediccion.
+        Este algoritmo se basa en ir agrupando otros algoritmos de clasificación, para que en conjunto generen una predicción.
 
-        Asimismo y, a diferencia del algoritmo de Random Forest, es que el **voto** de cada estimador no valen lo mismo, es decir, existe un grado de importancia (**weight**) entre los estimadores que siendo estos ponderados por sus votos es que generan la prediccion del algoritmo.
+        Asimismo, y a diferencia del algoritmo de Random Forest, es que el **voto** de cada estimador no valen lo mismo, es decir, existe un grado de importancia (**weight**) entre los estimadores que siendo estos ponderados por sus votos es que generan la predicción del algoritmo.
 
         **Weak Learner (Decision Stump)**
 
-        Es un algoritmo que sencillamente clasifica los datos segun un limite (similar a uno de los pasos del algoritmo de Decision Tree)
+        Es un algoritmo que sencillamente clasifica los datos según un límite (similar a uno de los pasos del algoritmo de Decision Tree)
 
         **Error**
 
-        - Primera itereacion
+        - Primera iteración
 
         $$
-        ϵ_{1} = \frac{desaceirtos}{N}
+        ϵ_{1} = \frac{desaciertos}{N}
         $$
 
-        - A partir de la segunda iteracion
+        - A partir de la segunda iteración
 
         $$
         ϵ_{t} = \sum weights
         $$
 
-        Nota: Si el error es mayor a 0.5, se itercambia la clasificacion y se calcula el $error = 1 - error$
+        Nota: Si el error es mayor a 0.5, se intercambia la clasificación y se calcula el $error = 1 - error$
 
         **Weights**
 
@@ -60,7 +60,7 @@ class ada_boost_st:
         \alpha = 0.5 \cdot log(\frac{1-ϵ_{t}}{ϵ_{t}})
         $$
 
-        **Prediction**
+        **Predicción**
 
         $$
         y = sign(\sum_{t}^{T} α_{t} \cdot h(X))
@@ -68,14 +68,15 @@ class ada_boost_st:
 
         **Training**
 
-        Se inicializan los pesos de cada mustra en $\frac{1}{N}$
+        Se inicializan los pesos de cada muestra en $\frac{1}{N}$
 
-        - Entrenamos a un clasificador debil (se busca la mejor variable y limite para segmentar)
+        - Entrenamos a un clasificador débil (se busca la mejor variable y límite para segmentar)
         - Calculamos el error $ϵ_{t} = \sum_{desaciertos} weights$
          - Cambiar el error y la polaridad si este es mayor a 0.5
         - Calcular $\alpha = 0.5 \cdot log(\frac{1 - \epsilon_{t}}{ϵ_{t}})$
         - Actualizar los pesos: $w = \frac{w \cdot e^{- αh(X)}}{Z}$
-        '''
+
+'''
         self.n_clf = 5
 
     def params(self):

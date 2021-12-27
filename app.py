@@ -19,10 +19,10 @@ from LDA import LDA_st
 st.write('''
 # **Machine Learning**
 
-Esta DEMO tiene por objetivo mostrar e interiorizar al espectardor sobre algunos de los algoritmos
-que mas frecuentemente se utilizan en **Machine Learning**. Asi, la biblioteca de
-`sklearn` la podriamos separar en 2 grandes grupos, los cuales se encuentran demarcados
-en funcion de la tarea que se prentede resolver.
+Esta DEMO tiene por objetivo mostrar de manera didáctica algunos de los algoritmos
+que más frecuentemente se utilizan en **Machine Learning**. Así, la biblioteca de
+`sklearn` la podríamos separar en 2 grandes grupos, los cuales se encuentran demarcados
+en función del objetivo que se pretende conseguir.
 
 - **Supervised Learning**
 - **Unsupervised Learning**
@@ -33,6 +33,27 @@ task = st.sidebar.selectbox('Tipo de algoritmo:', options=['Supervised Learning'
 
 # ----------------------------------------Supervised Learning-------------------------------
 if task == 'Supervised Learning':
+    st.write('''
+    #
+    ## **Supervised Learning**
+
+    **Supervised learning** consiste en aprender sobre la relación entre dos conjuntos de datos:
+    - Las observaciones (X)
+    - La variable externa (y), sobre la cual generalmente se pretende predecir (target o label)
+
+    Todos los estimadores de la biblioteca de sklearn tiene implementado el método
+    `fit(X, y)` para ajustar el algoritmo a los datos y el método `predict(X)` para
+    etiquetar las observaciones X.
+
+    **Classification and regression**
+
+    Si la tarea sobre la predicción consiste en clasificar las observaciones en
+    un numero finito de "etiquetas" (en otras palabras, nombrar el objeto mostrado),
+    entonces se dice que estamos hablando de una tarea de **Clasificación**.
+    Por otro lado, si la predicción es sobre una variable continua, entonces estamos
+    hablando de una tarea de **Regresión**.
+''')
+
     type = st.sidebar.radio('Objetivo del algoritmo:', options=['Classification', 'Regression'])
     if type == 'Classification':
         dataset_selected = None
@@ -152,6 +173,18 @@ if task == 'Supervised Learning':
 # ------------------------------------Unsupervised learning-----------------------------------
 
 elif task == 'Unsupervised Learning':
+    st.write('''
+    #
+    ## **Unsupervised Learning**
+
+    **Unsupervised learning**: Para este tipo de aprendizaje los datos no vienen
+    con un objetivo (**target**). De esta manera, lo que se busca es descubrir los
+    grupos con mayores características similares (**clustering**) o determinar
+    la distribución de los datos en el espacio (luego si esta distribución se
+    encuentra en muchas dimensiones, la podemos reducir a 2 o 3 con fin de poder
+    visualizar los datos)
+
+    ''')
     alg_selected = st.sidebar.selectbox('Algoritmo:', ['K-means Clustering',
                                         'Agglomerative Clustering',
                                         'PCA (Principal Component Analysis)',

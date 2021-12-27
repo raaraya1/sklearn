@@ -15,17 +15,17 @@ class agglomerative_clustering_st:
         self.desc = r'''
         # **Agglomerative Clustering**
 
-        Agglomerative Clustering es un tipo de algortimo que agrupa de manera jerarquica. De esta manera lo que se hace es considerar a cada observacion como un cluster y luego ir juntando aquellos que sean mas similares. Esto lo repetimos hasta alcanzar un numero de clusters deseado.
+        Agglomerative Clustering es un tipo de algoritmo que agrupa de manera jerárquica. De esta manera lo que se hace es considerar a cada observación como un cluster y luego ir juntando aquellos que sean más similares. Esto lo repetimos hasta alcanzar un numero de clusters deseado.
 
-        **Metodo**
+        **Método**
          - Inicializamos todos los puntos como clusters
-         - Tomamos dos clusters que se encuentren cercanos y los unificacamos en un unico cluster.
+         - Tomamos dos clusters que se encuentren cercanos y los unificáramos en un único cluster.
          - Repetimos el paso anterior hasta conseguir un numero de clusters deseado.
 
         **Criterios para medir la similitud entre clusters**
 
-         - Distancia entre los puntos **mas cercanos** de dos clusters distintos.
-         - Distancia entre los puntos **mas lejanos** de dos clusters distintos.
+         - Distancia entre los puntos **más cercanos** de dos clusters distintos.
+         - Distancia entre los puntos **más lejanos** de dos clusters distintos.
          - Distancia entre los promedios de cada cluster.
 
         '''

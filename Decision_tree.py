@@ -27,26 +27,26 @@ class Decision_tree_st:
         p(X) = \frac{len(x)}{n}
         $$
 
-        **Ganancia de informacion**
+        **Ganancia de información**
 
         $$
         IG = E(parent) - [weight \quad average] \cdot E(children)
         $$
 
-        **Metodo (para construir el arbol)**
+        **Método (para construir el árbol)**
 
-        - Se comienza desde el primer nodo y para cada se selecciona la mejor separacion en base a la ganancia de informacion.
-        - De la ganancia de informacion mas alta se rescata la variable y el limite.
-        - Luego se aplica la segmentacion a cada nodo, en base a la variable y limite encontrado.
-        - Se itera con estos pasos hasta cumplirse algun criterio
-         - **maximium depth**: cantidad de nodos maximos al final
-         - **minimum samples**: cantidad minima de elementos que puede tener los nodos
-         - **no more class distribution**: No existen mas elementos para segmentar
+        - Se comienza desde el primer nodo y para cada se selecciona la mejor separación en base a la ganancia de información.
+        - De la ganancia de información más alta se rescata la variable y el límite.
+        - Luego se aplica la segmentación a cada nodo, en base a la variable y limite encontrado.
+        - Se itera con estos pasos hasta cumplirse algún criterio
+         - **maximium depth**: cantidad de nodos máximos al final
+         - **minimum samples**: cantidad mínima de elementos que puede tener los nodos
+         - **no more class distribution**: No existen más elementos para segmentar
 
-        **Aproximacion (prediccion)**
+        **Aproximación (predicción)**
 
-        - Se sigue las segmentaciones en el orden del arbol (de arriba a abajo)
-        - Cuando se llega a un nodo al final del arbol se predice segun el valor mas comun en esa muestra.
+        - Se sigue las segmentaciones en el orden del árbol (de arriba a abajo)
+        - Cuando se llega a un nodo al final del árbol se predice según el valor más común en esa muestra.
 
 
         '''

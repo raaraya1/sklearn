@@ -60,7 +60,7 @@ if task == 'Supervised Learning':
 
         # Seleccionamos la base de datos (estas son para clcasificacion)
         with st.expander('Base de datos'):
-            class_sets = ['iris', 'digits', 'breast cancer']
+            class_sets = ['iris', 'digits', 'breast cancer', 'wine']
             dataset_name = st.selectbox('Escoja una base de datos', options=class_sets)
             if dataset_name == 'iris':
                 dataset_selected = datasets.load_iris()
@@ -71,6 +71,10 @@ if task == 'Supervised Learning':
             elif dataset_name == 'breast cancer':
                 dataset_selected = datasets.load_breast_cancer()
                 st.write(f'{dataset_selected.DESCR}')
+            elif dataset_name == 'wine':
+                dataset_selected = datasets.load_wine()
+                st.write(f'{dataset_selected.DESCR}')
+
 
         alg_selected = st.sidebar.selectbox('Algoritmo:', ['SVC (Support Vector Classification)',
                                             'KNN (K Nearest Neighborns)',
@@ -134,11 +138,15 @@ if task == 'Supervised Learning':
 
         # Seleccionamos la base de datos (estas son para Regresiones)
         with st.expander('Base de datos'):
-            class_sets = ['diabetes']
+            class_sets = ['diabetes', 'boston']
             dataset_name = st.selectbox('Escoja una base de datos', options=class_sets)
             if dataset_name == 'diabetes':
                 dataset_selected = datasets.load_diabetes()
                 st.write(f'{dataset_selected.DESCR}')
+            elif dataset_name == 'boston':
+                dataset_selected = datasets.load_boston()
+                st.write(f'{dataset_selected.DESCR}')
+
 
         alg_selected = st.sidebar.selectbox('Algoritmo:', ['Linear Regression',
                                             'SVR (Support Vector Regression)',
@@ -194,7 +202,7 @@ elif task == 'Unsupervised Learning':
 
     # Seleccionamos la base de datos (todas las bases sirven)
     with st.expander('Base de datos'):
-        class_sets = ['iris', 'digits', 'breast cancer', 'diabetes']
+        class_sets = ['iris', 'digits', 'breast cancer', 'diabetes', 'wine', 'boston']
         dataset_name = st.selectbox('Escoja una base de datos', options=class_sets)
         if dataset_name == 'iris':
             dataset_selected = datasets.load_iris()
@@ -208,6 +216,14 @@ elif task == 'Unsupervised Learning':
         elif dataset_name == 'diabetes':
             dataset_selected = datasets.load_diabetes()
             st.write(f'{dataset_selected.DESCR}')
+        elif dataset_name == 'wine':
+            dataset_selected = datasets.load_wine()
+            st.write(f'{dataset_selected.DESCR}')
+        elif dataset_name == 'boston':
+            dataset_selected = datasets.load_boston()
+            st.write(f'{dataset_selected.DESCR}')
+
+
 
     # seleccionar el algoritmo
     if alg_selected == 'K-means Clustering': algorithm = k_mean_clustering_st(dataset_selected)

@@ -252,4 +252,9 @@ elif task == 'Unsupervised Learning':
         elif alg_selected == 'PCA (Principal Component Analysis)': c.pyplot(algorithm.solve())
         elif alg_selected == 'ICA (Independent Component Analysis)': c.pyplot(algorithm.solve())
         elif alg_selected == 'Agglomerative Clustering': c.pyplot(algorithm.solve())
-        elif alg_selected == 'LDA (Linear Discrimination Analysis)' and len(set(dataset_selected.target)) > 2: c.pyplot(algorithm.solve())
+        elif alg_selected == 'LDA (Linear Discrimination Analysis)' and (dataset_selected.DESCR).split()[1] not in ['_diabetes_dataset:', '_boston_dataset:']:
+            c.pyplot(algorithm.solve())
+        else:
+            st.write('''
+            **Nota:** LDA solo puede resolver problemas de clasificación, ya que require de las
+            **etiquetas** de las observaciones para funcionar''')

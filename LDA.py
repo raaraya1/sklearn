@@ -64,25 +64,31 @@ class LDA_st:
         self.n_components = 2
 
     def params(self):
-        n_features = int(self.database.data.shape[1])
-        self.n_components = st.slider('Numero de componentes', 1, n_features, 2)
+        self.n_clases = len(set(self.database.target))
+        self.n_features = int(self.database.data.shape[1])
+        self.min = int(np.min([self.n_clases-1, self.n_features]))
+        if self.min == 1: pass
+        elif self.min == 2: self.n_components = 2
+        else: self.n_components = st.slider('Numero de componentes', 2, self.min, 2)
 
     def solve(self):
-        self.x_feature = st.slider('Componente eje x', 1, self.n_components, 1)
-        self.y_feature = st.slider('Componente eje y', 1, self.n_components, 2)
-        X = self.database.data
-        y = self.database.target
-        sklearn_clus = LinearDiscriminantAnalysis(n_components=self.n_components)
-        sklearn_clus.fit(X, y)
-        X_proyected_sk = sklearn_clus.transform(X)
+        if self.min == 1: pass
+        else:
+            self.x_feature = st.slider('Componente eje x', 1, self.n_components, 1)
+            self.y_feature = st.slider('Componente eje y', 1, self.n_components, 2)
+            X = self.database.data
+            y = self.database.target
+            sklearn_clus = LinearDiscriminantAnalysis(n_components=self.n_components)
+            sklearn_clus.fit(X, y)
+            X_proyected_sk = sklearn_clus.transform(X)
 
-        x1 = X_proyected_sk[:, self.x_feature-1]
-        x2 = X_proyected_sk[:, self.y_feature-1]
+            x1 = X_proyected_sk[:, self.x_feature-1]
+            x2 = X_proyected_sk[:, self.y_feature-1]
 
-        plt.figure(figsize=(12, 8))
-        plt.scatter(x1, x2, c=y, edgecolors='none', alpha=0.8, cmap=plt.cm.get_cmap('viridis', len(y)))
-        plt.xlabel(f'Componente {self.x_feature}')
-        plt.ylabel(f'Componente {self.y_feature}')
-        plt.colorbar()
+            plt.figure(figsize=(12, 8))
+            plt.scatter(x1, x2, c=y, edgecolors='none', alpha=0.8, cmap=plt.cm.get_cmap('viridis', len(y)))
+            plt.xlabel(f'Componente {self.x_feature}')
+            plt.ylabel(f'Componente {self.y_feature}')
+            plt.colorbar()
 
-        return plt.gcf()
+            return plt.gcf()
